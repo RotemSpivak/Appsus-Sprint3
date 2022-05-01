@@ -3,25 +3,26 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: calc(100vh - 51.95px);
-    background-image: url('https://media.istockphoto.com/photos/modern-houseplants-picture-id1158785202?k=20&m=1158785202&s=612x612&w=0&h=yyUhACDOThgAeJiNdewSOymIFfcoOmDwSBSr2L3SP_k=');
+    height: calc(100vh - 50px);
+    background-image: url('https://cariblens.com/wp-content/uploads/2022/03/flat-lay-photo-office-desk-with-laptop-copy-space-background_1150-45598.webp');
     background-size: cover;
     background-position: center center;
     background-repeat:   no-repeat;
 }
+
 .app-home h1{
     margin-top: 50px;
 
     font-size: 50px;
 }
 .app-home h2{
-    margin-top: 50px;
+    margin-top: 42px;
     font-size: x-large;
     font-weight: 400;
 }
 .link-container{
     display: flex;
-    margin-top: 110px;
+    margin-top: 80px;
     align-items: center;
     width: 70%;
     justify-content: space-evenly;
@@ -34,6 +35,12 @@
     display: flex;
     font-size: xx-large;
 }
+
+
+.home-title:hover{
+    color: rgb(2, 71, 2);
+}
+
 
 .link-container a {
     display: flex;

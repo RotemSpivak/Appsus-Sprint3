@@ -1,0 +1,90 @@
+.note-todo-txt li {
+    width: 100%;
+    text-align: left;
+}
+
+.color-input .item{
+    border: 0.5px solid rgb(238, 238, 238);
+}
+.notes-app button{
+    background-color: #ffffff; 
+    border: none;
+    cursor: pointer;
+  }
+  .notes-app .fa-solid, .fa-brands{
+      display: flex;
+      justify-content: center;
+      color: rgb(191, 188, 188);
+      margin: 5px;
+  
+  }
+
+  .notes-app .actions-container button {
+    margin: 10px 9px;
+    font-size: x-large;
+    background-color: transparent;
+}
+.notes-app .actions-container button i {
+    background-color: transparent;
+}
+.notes-app .actions-container button i .selected-format{
+    background-color: rgb(133, 129, 129);
+
+}
+
+.notes-app .actions-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 18px;
+}
+
+.notes-app .form-submit-btn {
+    display: none;
+}
+
+.notes-app .selected-format {
+    border-radius: 50%;
+
+    color:rgb(144, 142, 142);
+}
+.notes-app .thumbtack-btn-container button {
+    z-index: 0;
+    top: 0;
+    right: 0;
+}
+
+.note-btn-container {
+    display: flex;
+    visibility: hidden;
+    align-items: center;
+    bottom: 0;
+    padding-top: 20px;
+}
+
+.note:hover .note-btn-container{
+    visibility: visible;   
+}
+
+
+.notes-app #file-btn {
+    position: relative;
+    cursor: pointer;
+}
+.input-color-container .item{
+    width: 35px;
+    height: 35px;
+    margin: 3px;
+    border-radius: 50%;
+}
+.input-color-btn {
+    position: relative;
+}
+.note-btn-container .fa-solid{
+    color: rgb(123, 122, 122);
+}
+
+.close-edit-btn {
+    align-self: flex-end;
+    padding: 5px;
+}

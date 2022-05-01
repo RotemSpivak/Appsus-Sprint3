@@ -3,3 +3,57 @@
         justify-content: center;
     }
 }
+
+@media (max-width:1500px ){
+    .note {
+        width: 238px;
+    }
+}
+@media (max-width:1100px ){
+    .notes-app .notes-list {
+        column-count: 3;
+    }
+    .note {
+        width: 260px;
+    }
+}
+@media (max-width:950px ){
+    .notes-app .notes-list {
+        column-count: 2;
+    }
+
+    .note {
+        min-width: 240px;
+    }
+}
+@media (max-width:780px ){
+    .notes-app .notes-list {
+        column-count: 1;
+    }
+    .note, .note iframe{
+        width: 520px;
+        margin: 0;
+    }
+    .note iframe{
+        width: 100%;
+    }
+} 
+@media (max-width:600px ){
+
+    .note {
+        width: 450px;
+        margin: 0;
+    }
+/* 
+    .input-color-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .input-color-container .item {
+        flex-direction: column;
+        flex-wrap: wrap;
+    } */
+} 

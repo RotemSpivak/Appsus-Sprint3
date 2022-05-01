@@ -2,6 +2,7 @@ import { notesService } from "../services/note.service.js";
 
 const { NavLink, withRouter } = ReactRouterDOM;
 export function NotePreview({ note, onDeleteNote, onEditNote, onPinNote, onToggleTodo }) {
+
   const onDeleteNotePreview = (event) => {
     event.stopPropagation();
     notesService.deleteNote(note.id).then(() => {
@@ -32,6 +33,10 @@ export function NotePreview({ note, onDeleteNote, onEditNote, onPinNote, onToggl
         key={note.id}
         style={{ backgroundColor: note.backgroundColor }}
       >
+        
+        <div className="note-title">{note.info.title}</div>
+        <div className="note-txt">{note.info.txt}</div>
+        <div className="note-btn-container">
         <div className="thumbtack-btn-container">
           <button
             onClick={onPinNotePreview}
@@ -43,9 +48,6 @@ export function NotePreview({ note, onDeleteNote, onEditNote, onPinNote, onToggl
             ></i>
           </button>
         </div>
-        <div className="note-title">{note.info.title}</div>
-        <div className="note-txt">{note.info.txt}</div>
-        <div className="note-btn-container">
           <div
             style={{ backgroundColor: note.backgroundColor }}
             onClick={(ev) => {
@@ -72,6 +74,7 @@ export function NotePreview({ note, onDeleteNote, onEditNote, onPinNote, onToggl
       <div onClick={selectNote} className="note" key={note.id} style={{ backgroundColor: note.backgroundColor }}>
         <img className="note-preview-img" src={note.info.url} alt="" />
         <div className="note-title">{note.info.title}</div>
+        <div className="note-txt">{note.info.txt}</div>
         <div className="note-btn-container">
         <div className="thumbtack-btn-container">
           <button style={{ backgroundColor: note.backgroundColor }} onClick={onPinNotePreview}>

@@ -1,8 +1,17 @@
 .notes-app .notes-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    column-count: 4;
     margin-top: 20px;
     margin-left: 8%;
     margin-right: 8%;
+}
+
+.notes-app .pinned-h2{
+    text-decoration: underline;
+    color: rgb(116, 114, 114);
+    letter-spacing: 1.5px;
+}
+.notes-app .not-pinned-h2{
+    text-decoration: underline;
+    color: rgb(116, 114, 114);
+    letter-spacing: 1.5px;
 }

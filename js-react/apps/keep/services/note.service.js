@@ -2,6 +2,7 @@ import { storageService } from "../../../services/storage.service.js";
 import { utilService } from "../../../services/util.service.js";
 
 const STORAGE_KEY = "notesDB";
+const STORAGE_KEY_PINNED = "pinnedNotesDB"
 
 export const notesService = {
   query,
@@ -11,7 +12,9 @@ export const notesService = {
   editNote,
   pinNote,
   toggleTodo,
+  getPinnedNotes,
 };
+
 
 const gNotes = storageService.loadFromStorage() || [
   {
@@ -25,12 +28,21 @@ const gNotes = storageService.loadFromStorage() || [
   },
   {
     id: utilService.makeId(),
+    type: "note-txt",
+    backgroundColor: "#CFDAC8",
+    info: {
+      txt: "Call Bob and remind him of the party on Saturday.",
+    },
+  },
+  {
+    id: utilService.makeId(),
     type: "note-img",
     backgroundColor: "#fff",
     info: {
       url: "https://images.unsplash.com/photo-1536532184021-da5392b55da1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Ymx1ZSUyMHNreXxlbnwwfHwwfHw%3D&w=1000&q=80",
 
-      title: "",
+      title: "2021",
+      txt: "The skies during our first picnic.",
     },
   },
 
@@ -62,6 +74,7 @@ const gNotes = storageService.loadFromStorage() || [
     backgroundColor: "CCF2F4",
     info: {
       url: "https://imageio.forbes.com/specials-images/imageserve/6058b1eed388d3a4a0831d09/960x0.jpg?fit=bounds&format=jpg&width=960",
+      title: "Diving in the Galapagos",
     },
   },
 
@@ -85,6 +98,8 @@ const gNotes = storageService.loadFromStorage() || [
     backgroundColor: "#D3E4CD",
     info: {
       url: "https://www.sciencenewsforstudents.org/wp-content/uploads/2020/03/1030_oceanwaves-1028x579.png",
+      title: "Summer of 2019",
+      txt: "Surfing in Hawaii!!!",
     },
   },
 ];
@@ -129,6 +144,46 @@ function pinNote(noteId) {
   notes.unshift(noteToPin);
   storageService.saveToStorage(STORAGE_KEY, notes);
   return Promise.resolve();
+
+  // let notes = storageService.loadFromStorage(STORAGE_KEY) || []
+  // let pinnedNotes = storageService.loadFromStorage(STORAGE_KEY_PINNED) || []
+  // let note = getNoteById(noteId)
+  // if(pinnedNotes){
+  //   const pinnedIdx = pinnedNotes.findIndex((pinnedNote) => pinnedNote.id === noteId)
+  //   console.log('noteid',pinnedIdx)
+  //   pinnedNotes.push(note)
+  //   if(pinnedIdx !== -1){
+  //     unpinNote(note.id)
+  //     return
+  //   }
+  // }else{
+  //   storageService.saveToStorage(STORAGE_KEY_PINNED, pinnedNotes)
+  //   notes.splice(pinnedIdx, 1);
+  //   storageService.saveToStorage(STORAGE_KEY, notes);
+  //   return
+
+  // }
+  
+}
+function getPinnedNotes(){
+  const pinnedNotes =storageService.loadFromStorage(STORAGE_KEY_PINNED) ||[]
+  return pinnedNotes
+}
+
+
+function unpinNote(noteId){
+  let notes = storageService.loadFromStorage(STORAGE_KEY);
+  let pinnedNotes = storageService.loadFromStorage(STORAGE_KEY_PINNED) ||[]
+
+  let note = getNoteByIdPinned(noteId)
+  if(pinnedNotes){
+    const pinnedIdx = pinnedNotes.findIndex((pinnedNote) => pinnedNote.id === noteId)
+    console.log('pinned idx',pinnedIdx)
+    pinnedNotes.splice(pinnedIdx, 1)
+    notes.push(note)
+    console.log(notes)
+  }
+  storageService.saveToStorage(STORAGE_KEY_PINNED, pinnedNotes)
 }
 function loadImageFromInput(ev, onImageReady) {
   return new Promise((resolve) => {
@@ -138,7 +193,7 @@ function loadImageFromInput(ev, onImageReady) {
       var img = new Image();
       img.src = event.target.result;
       resolve(img.src);
-      // img.onload = onImageReady.bind(null, img)
+
     };
     reader.readAsDataURL(ev.target.files[0]);
   });
@@ -161,4 +216,17 @@ function toggleTodo(note, todoIdx){
   notes.splice(idx, 1, noteToSave);
   storageService.saveToStorage(STORAGE_KEY, notes);
   return Promise.resolve();
+}
+
+function getNoteByIdPinned(noteId) {
+  let notes = storageService.loadFromStorage(STORAGE_KEY_PINNED) || []
+  console.log(notes)
+  const currNote = notes.find(note => note.id === noteId)
+  return currNote
+}
+function getNoteById(noteId) {
+  let notes = storageService.loadFromStorage(STORAGE_KEY) || []
+  console.log(notes)
+  const currNote = notes.find(note => note.id === noteId)
+  return currNote
 }

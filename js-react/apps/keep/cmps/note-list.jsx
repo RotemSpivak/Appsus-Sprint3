@@ -1,6 +1,8 @@
 import { NoteEdit } from "./note-edit.jsx"
 import { NotePreview } from "./note-preview.jsx"
 import { utilService } from "../../../services/util.service.js"
+import { notesService } from "../services/note.service.js";
+import { storageService } from "../../../services/storage.service.js";
 
 export class NoteList extends React.Component {
     state = {
@@ -45,10 +47,16 @@ export class NoteList extends React.Component {
         isEditShown: false
         })
     }
-    
     render() {
+        console.log('hello')
+        // const pinnedNotes = notesService.getPinnedNotes()
+        // console.log(pinnedNotes)
         const {notes, onDeleteNote, onPinNote, onToggleTodo} = this.props
-        return <section className="notes-list">  
+
+        return <section className="notes-list">
+            {/* <h2 className="pinned-h2">Pinned</h2>
+            {/* {pinnedNotes.map(note=> <NotePreview onToggleTodo={onToggleTodo} onPinNote={onPinNote} note={note} key={note.id}  onDeleteNote={onDeleteNote} onEditNote={this.onEditNote}/>)} */}
+            {/* <h2 className="not-pinned-h2">Not Pinned</h2> } */}
             <NoteEdit onCloseModal={this.onCloseModal} note={this.state.noteToEdit} isShown={this.state.isEditShown} onNoteUpdated={this.onNoteUpdated}/> 
             {notes.map(note=> <NotePreview onToggleTodo={onToggleTodo} onPinNote={onPinNote} note={note} key={note.id}  onDeleteNote={onDeleteNote} onEditNote={this.onEditNote}/>)}
         </section>
