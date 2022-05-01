@@ -20,7 +20,6 @@ export class MailApp extends React.Component {
             subject: '',
             body: ''
         }
-
     }
 
 
@@ -34,45 +33,27 @@ export class MailApp extends React.Component {
         }
     }
 
-componentDidUpdate(prevProps){
-    if (prevProps.searchTerm !== this.props.searchTerm) {
-        if (!this.props.searchTerm) {
-            this.getEmails()
+    componentDidUpdate(prevProps) {
+        if (prevProps.searchTerm !== this.props.searchTerm) {
+            if (!this.props.searchTerm) {
+                this.getEmails()
+                return
+            }
+
+            const regex = new RegExp(this.props.searchTerm, 'ig')
+            if (this.props.searchTerm) {
+                MailService.query(this.props.searchTerm, true)
+                    .then(emails => {
+                        this.setState({ emails: emails })
+                    })
+            }
+
+            console.log(this.props.searchTerm)
             return
         }
-    
-    const regex = new RegExp(this.props.searchTerm, 'ig')
-    if(this.props.searchTerm) {
-        MailService.query(this.props.searchTerm,true)
-        .then(emails => {
-            this.setState({ emails: emails })
-        })
+
     }
-        
-    console.log(this.props.searchTerm)
-    return
-}
-        // const filteredMales = this.state.notes.filter((note) => {
-        //     if (note.info.title) {
-                // const matchTitle = 
-                // !!note.info.title.match(regex)
-                // console.log(matchTitle)
-        //         if (matchTitle) return matchTitle
-        //     }
-        //     if (note.info.txt) {
-        //         return !!note.info.txt.match(regex)
-        //     } 
-        //     if (note.type === 'note-todos') {
-        //         return note.info.todos.reduce((acc, todo) => {
-        //             if (!!todo.txt.match(regex)) acc = true
-        //             return acc
-        //         }, false)
-        //     }
-        // });
-        // this.setState({notes: filteredNotes})
-    // }
-}
-    
+
     getEmails = () => {
         MailService.query(this.state.critiria)
             .then(emails => {
@@ -82,19 +63,17 @@ componentDidUpdate(prevProps){
 
     changeStateCritiria = (value) => {
         this.setState({ isNewEmail: false, isOpenMail: false, critiria: value }, this.getEmails)
-
     }
 
     onNewEmail = () => {
         document.body.style.pointerEvents = 'none'
         this.setState({ isNewEmail: true, isOpenMail: false, isTrash: false }, this.getEmails)
-
     }
 
     onCloseMail = (prevState) => {
         document.body.style.pointerEvents = 'all'
         this.setState(...prevState, { isOpenMail: false, noteMail: '' }, this.getEmails)
-        // this.setState({isOpenMail:false},this.getEmails)
+
 
     }
 
@@ -103,8 +82,9 @@ componentDidUpdate(prevProps){
         this.setState({ isNewEmail: false, isOpenMail: false, isTrash: false, noteMail: '' })
     }
 
-    onDeleteEmail = (emailId) => {
-        MailService.deleteEmail(emailId)
+    onDeleteEmail = (emailId,isReturn) => {
+        MailService.deleteEmail(emailId,isReturn)
+        this.setState({isOpenMail: false})
         this.getEmails()
     }
 
@@ -122,26 +102,17 @@ componentDidUpdate(prevProps){
             subject: email.subject,
             body: email.body
         }
-
-
     }
 
     onOpenMail = (email) => {
         if (email.isRead) email.isRead = false
         else email.isRead = true
         this.getEmails()
-        // this.setState({ isOpenMail: true })
     }
 
     onClickMail = (email) => {
-        // if (email.isDraft) {
-        // console.log('here')
-        // this.onNewEmail()
-        // }
-        // else {
         email.isRead = true
         this.setState({ isOpenMail: true, currOpenMail: email })
-        // }
     }
 
     render() {
@@ -155,7 +126,7 @@ componentDidUpdate(prevProps){
                 <div className="preview">
                     {!isOpenMail && <EmailList onOpenMail={this.onOpenMail} onDeleteEmail={this.onDeleteEmail} onCheckStar={this.onCheckStar} onClickMail={this.onClickMail} emails={emails} />}
                     {isNewEmail && <NewMail onCloseMail={this.onCloseMail} noteMail={this.state.noteMail} draftMail={this.state.draftMail} onSentMail={this.onSentMail} />}
-                    {isOpenMail && <EmailDetails email={this.state.currOpenMail} />}
+                    {isOpenMail && <EmailDetails onDeleteEmail={this.onDeleteEmail} email={this.state.currOpenMail} />}
                 </div>
             </div>
         </section>

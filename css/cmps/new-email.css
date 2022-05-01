@@ -43,10 +43,13 @@
     border-radius: 5px;
 }
 
+
+
 .send-note{
-    display: flex;
-    justify-content: center;
     height: 30px;
     width: 50px;
-    transform: translateY(1px);
+    margin-bottom: 60px;
+    margin-right: -1px;
+    margin-left: 53px;
+    transform: translateY(53px);
 }

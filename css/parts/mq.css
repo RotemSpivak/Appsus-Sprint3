@@ -1,4 +1,4 @@
-@media(max-width:1370px) {
+/* @media(max-width:1370px) {
     .text-preview {
         width: 60%;
     }
@@ -8,31 +8,54 @@
     .text-preview {
         width: 50%;
     }
-}
-@media(max-width:940px) {
-    .text-preview {
-        width:40%;
-    }
-}
+*/
+@media(max-width:940px) {}
 
 
 @media(max-width:780px) {
     .email {
-        height: 141px;
+        height: 95px;
         width: 95%;
         display: flex;
+        padding-left: 10px;
+    }
+
+    
+
+    .email:hover .hidden {
+        display: none;
+    }
+
+    .email:hover .date-write {
+        display: block;
+    }
+
+    .section-nav{
+        transform: translate3d(-32px, -35px, 10px);
+    }
+
+    .star-fav {
+        position: absolute;
+        right: 1%;
+        transform: translateY(-3px);
+    }
+
+    .dad {
+        position: fixed;
+    }
+
+    .sent-drom {
+        padding-left: 15px;
     }
 
     .email-nav {
         width: 105px;
     }
 
-    .header-nav {
-        width: 150%;
-    }
-
     .dad {
         width: 35%;
+        z-index: 10;
+
     }
 
     .child {
@@ -48,11 +71,16 @@
         margin-bottom: 5px;
     }
 
-    .email-nav {
+    .email-navv {
         height: 250px;
         margin-right: 0;
         margin-left: 0;
-        transform: translateX(6px);
+        transform: translateX(24px);
+
+    }
+
+    .preview {
+        width: 223%;
     }
 
     p.bold.coma {
@@ -73,26 +101,69 @@
     }
 
     .text-preview {
-        flex-direction: column;
-        gap: 5px;
+        width: 50%;
         margin-left: 0;
+        transform: translateX(-4px);
+    }
+
+    .search-header{
+        width: 10rem;
     }
 
     .phone-date {
         display: none;
-        /* padding-right: 15px;
-        display: block;
-        justify-self: flex-end; */
+
     }
 
     .date {
-        /* display: none; */
+
         padding-right: 15px;
         display: block;
         justify-self: flex-end;
     }
 
+    .star{
+        margin-right: 6px;
+    }
+
+    .date-write {
+        position: absolute;
+        right: 0;
+        transform: translateY(-43px);
+        margin-right: 38px;
+    }
+
+
     .add-mail-btn {
-        transform: translateX(-11px);
+        margin: 0;
+        transform: translate3d(-32px, 31px, 10px);
+        width: 120px;
+        left: 0;
+        width: 100%;
+        transform: translateX(-236px);
+        overflow: hidden;
+        transition: 0.4s;
+    }
+
+    .manu-btn {
+        display: block;
+        transform: translate3d(-28px, 0px, 31px);
+    }
+
+    .header-nav {
+        left: 0;
+        width: 100%;
+        transform: translateX(-236px);
+        overflow: hidden;
+        transition: 0.4s;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .nav-open {
+        max-height: 100vh;
+        transform: translateX(0px);
+
+
     }
 }

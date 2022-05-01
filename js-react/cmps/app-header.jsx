@@ -8,6 +8,7 @@ class _AppHeader extends React.Component{
     }
 
     componentDidUpdate(prevProps){
+        console.log('here')
         if (this.props.location.pathname === prevProps.location.pathname) return
         if(this.props.location.pathname.includes('notes')){
             this.setState({app: 'notes'})
