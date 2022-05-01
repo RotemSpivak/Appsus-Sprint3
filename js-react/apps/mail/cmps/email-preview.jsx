@@ -8,7 +8,8 @@ export function EmailPreview({ email, onClickMail, onCheckStar, onDeleteEmail, o
     let bcg = '';
     let envFav = <i onClick={(ev) => { onOpenMail(email), ev.stopPropagation() }} className="fa-solid fa-envelope hidden"></i>
     let regular;
- 
+    let isReturn = (email.isTrash) ? '' : 'super-hidden'
+
     if (!email.isChecked) regular = '-regular'
     else regular = ''
     if (email.isRead) {
@@ -22,7 +23,7 @@ export function EmailPreview({ email, onClickMail, onCheckStar, onDeleteEmail, o
     let day = time.getDate()
     let date = day + '/' + month + '/' + year
     return <div className={`email ${bcg} nav-head`}>
-        <div className="star">
+        <div className="star star-fav">
             <i onClick={() => { onCheckStar(email) }} className={`fa${regular} fa-star star ${email.isChecked}`}></i>
         </div>
         <div className="mail-info flex" onClick={() => onClickMail(email)}>
@@ -30,54 +31,23 @@ export function EmailPreview({ email, onClickMail, onCheckStar, onDeleteEmail, o
             <div className="text-preview flex">
                 <LongText isBold={isRead} short={titleLength} text={email.subject} />
                 <p className="bold coma"> - </p>
-                <LongText isBold={''} short={bodyLength} text={email.body} />
+                <LongText className="right" isBold={''} short={bodyLength} text={email.body} />
             </div>
             <div className="date flex">
                 <p className="date-write">{date}</p>
                 <div className="pop">
                     {envFav}
                     <i onClick={(ev) => { onDeleteEmail(email.id), ev.stopPropagation() }} className="fa-solid fa-trash hidden"></i>
+                    <i  onClick={(ev) => { onDeleteEmail(email.id,true), ev.stopPropagation() }}   className={`fa-solid fa-backward hidden ${isReturn}`}></i>
                 </div>
             </div>
-          
-            {/* <i onClick={() => { onOpenMail() }} className="fa-solid fa-envelope hidden"></i> */}
 
         </div>
-           <div>
-                <p className="phone-date">{date}</p>
-            </div>
+        <div>
+            <p className="phone-date">{date}</p>
+        </div>
     </div>
 }
 
 
 
-
-
-
-// {/* <div className="star">
-// <i onClick={() => { onCheckStar(email) }} className={`fa${regular} fa-star star ${email.isChecked}`}></i>
-// </div>
-// <div className="mail-info flex" onClick={() => onClickMail(email)}>
-// <div className="preview-txt title">
-// <p className={isRead}>{email.sentFrom}</p>
-// </div>
-// <div className="preText flex space-between">
-
-// <div className={`previe-txt ${isRead}`}>
-// <LongText short={50} text={email.subject}/>
-// </div>
-// <p className="bold coma">-</p>
-// {/* <div className="preview-txt"> */}
-{/* // <LongText short={50} text={email.body} /> */ }
-// {/* </div> */}
-{/* // <div className="date"> */ }
-{/* // <p className="date">{date}</p> */ }
-{/* // </div> */ }
-{/* // </div> */ }
-{/* // </div> */ }
-{/* // <div> */ }
-{/* // <p className="phone-date">{date}</p> */ }
-{/* // </div> */ }
-{/* <i onClick={() => { onOpenMail() }} className="fa-solid fa-envelope hidden"></i> */ }
-{/* // {envFav} */ }
-{/* // <i onClick={() => { onDeleteEmail(email.id) }} className="fa-solid fa-trash hidden"></i> */ } 

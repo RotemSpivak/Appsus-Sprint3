@@ -55,7 +55,7 @@ export function NotePreview({ note, onDeleteNote, onEditNote, onPinNote, onToggl
             }}
           >
             <NavLink
-              to={`/mail/:?noteTitle=${note.info.txt}`}
+              to={`/maill/:?noteTitle=${note.info.txt}`}
               className="fa-solid fa-paper-plane"
             ></NavLink>
           </div>

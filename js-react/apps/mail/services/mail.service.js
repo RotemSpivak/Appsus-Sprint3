@@ -109,7 +109,7 @@ const gEmails = [{
     body: 'Odit dicta illum quaerat doloribus quasi repudiandae iure minus! Corrupti velit, minima consectetur labore vero incidunt voluptatem hic quo numquam laborum odio eos. Dignissimos aliquid veniam, est eum laborum quos.    '
     ,
     isRead: false,
-    sentAt: 1541163930574,
+    sentAt: 1541734530574,
     sentFrom: 'muki puk',
     from: 'gazibo@inc.com',
     to: 'user@appsus.com',
@@ -122,7 +122,7 @@ const gEmails = [{
     body: 'Quibusdam suscipit enim veritatis cupiditate hic eum mollitia eaque quos ducimus, tempora minima iusto magni quisquam rerum dolores nostrum iste quae dolor modi perferendis nulla? Labore quam in necessitatibus consequatur.    '
     ,
     isRead: false,
-    sentAt: 1541163930574,
+    sentAt: 1543645930574,
     sentFrom: 'puki cohen',
     from: 'gazibo@inc.com',
     to: 'user@appsus.com',
@@ -135,7 +135,7 @@ const gEmails = [{
     body: 'Esse veniam ad mollitia, ea, tempore iure, quibusdam ipsam cumque at molestiae iusto inventore error praesentium illo! Quas eveniet sequi debitis minima soluta ipsam aut eum corporis, dolores, placeat asperiores.    '
     ,
     isRead: false,
-    sentAt: 1541163930574,
+    sentAt: 1541123960574,
     sentFrom: 'bikni bonki',
     from: 'gazibo@inc.com',
     to: 'user@appsus.com',
@@ -148,7 +148,7 @@ const gEmails = [{
     body: 'A quidem laborum, quas incidunt corporis corrupti dicta deserunt architecto fuga praesentium modi? Ea, numquam dolore. Vitae iste hic magni ipsam dignissimos soluta autem doloremque libero? Maxime itaque suscipit dolorum.    '
     ,
     isRead: true,
-    sentAt: 1541163930574,
+    sentAt: 1641163930574,
     sentFrom: 'querg shlerg',
     from: 'gazibo@inc.com',
     to: 'user@appsus.com',
@@ -161,7 +161,7 @@ const gEmails = [{
     body: 'Corrupti, vel. Quibusdam distinctio vero maxime sint sequi, magni debitis? Maxime totam culpa possimus rem molestiae dolor perspiciatis, animi pariatur voluptate quo ducimus alias obcaecati deleniti ab repellendus dicta nam.    '
     ,
     isRead: false,
-    sentAt: 1541163930574,
+    sentAt: 1541166939574,
     sentFrom: 'gazibo shlaga',
     from: 'gazibo@inc.com',
     to: 'user@appsus.com',
@@ -170,12 +170,12 @@ const gEmails = [{
     isTrash: false
 }, {
     id: 'mail112',
-    subject: 'If you want to get',
-    body: 'Iure ut iusto explicabo quam ipsam, nulla a. Earum aliquam in quod molestias iste, enim repudiandae laboriosam repellat voluptate blanditiis praesentium animi labore dicta optio beatae architecto eius provident dolore.    '
+    subject: 'I like pizza',
+    body: 'Recusandae numquam ducimus laboriosam debitis fugiat quas aliquid beatae eos deleniti vitae veniam ratione a, odio alias id harum sit officia est ipsam esse et vel autem. Eaque, nesciunt placeat!    '
     ,
     isRead: false,
-    sentAt: 1541163930574,
-    sentFrom: 'gazibo shlaga',
+    sentAt: 1541663030574,
+    sentFrom: 'puki tuki',
     from: 'gazibo@inc.com',
     to: 'user@appsus.com',
     isChecked: false,
@@ -183,12 +183,12 @@ const gEmails = [{
     isTrash: false
 }, {
     id: 'mail113',
-    subject: 'If you want to get',
+    subject: 'Did you hear?',
     body: 'Culpa nemo recusandae sed hic, ad reiciendis facere dolorem adipisci excepturi eligendi repudiandae officiis ratione sunt ullam quidem assumenda deleniti, harum consectetur ipsum. Laborum exercitationem id cupiditate sunt ea incidunt!'
     ,
     isRead: false,
-    sentAt: 1541163930574,
-    sentFrom: 'gazibo shlaga',
+    sentAt: 1546163530574,
+    sentFrom: 'bigi bog',
     from: 'gazibo@inc.com',
     to: 'user@appsus.com',
     isChecked: false,
@@ -196,12 +196,12 @@ const gEmails = [{
     isTrash: false
 }, {
     id: 'mail114',
-    subject: 'If you want to get',
-    body: 'Natus molestiae repellendus non tempora ratione, perspiciatis nihil? Ipsa optio quis ex consequuntur. Architecto vitae, alias debitis dolorem ab tenetur mollitia porro labore, perspiciatis beatae accusantium minima doloremque dolor impedit!'
+    subject: 'You would not believe!',
+    body: 'Iusto ea doloremque odit numquam unde distinctio, quos temporibus vitae, consequuntur ratione, quaerat alias ipsum neque recusandae nihil. Dolorum nemo voluptatum vitae autem quo enim vero dolor quam suscipit molestiae.    '
     ,
     isRead: false,
-    sentAt: 1541163930574,
-    sentFrom: 'gazibo shlaga',
+    sentAt: 1541163980579,
+    sentFrom: 'shlupi dupi',
     from: 'gazibo@inc.com',
     to: 'user@appsus.com',
     isChecked: false,
@@ -209,12 +209,12 @@ const gEmails = [{
     isTrash: false
 }, {
     id: 'mail115',
-    subject: 'If you want to get',
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sapiente libero sint, alias error possimus id assumenda doloremque incidunt? Nostrum natus ipsam corrupti recusandae doloremque! Cumque neque velit dolorum quasi?'
+    subject: 'If you do not work this weekend',
+    body: 'I would come to your house and kill you,you cant work out today!'
     ,
     isRead: false,
-    sentAt: 1541163930574,
-    sentFrom: 'gazibo shlaga',
+    sentAt: 1531163960574,
+    sentFrom: 'Tomi the king',
     from: 'gazibo@inc.com',
     to: 'user@appsus.com',
     isChecked: false,
@@ -235,9 +235,33 @@ const email = {
     isChecked: false
 }
 
-function deleteEmail(emailId) {
+function query(critiria, isSearch) {
+    let emails = gEmails
+    let inboxMails = emails.filter(mail => mail.to === loggedinUser.email && !mail.isTrash)
+    let sentMails = emails.filter(mail => mail.from === loggedinUser.email && !mail.isDraft && !mail.isTrash)
+    let isStar = emails.filter(mail => mail.isChecked === true && !mail.isTrash)
+    let isDraft = emails.filter(mail => mail.isDraft === true && !mail.isTrash)
+    let isTrash = emails.filter(mail => mail.isTrash === true)
+    let searchedEmails = emails.filter(mail => {
+        if (mail.body.includes(critiria) || mail.subject.includes(critiria)) {
+            return mail
+        }
+    })
+
+    if (isSearch) {
+        return Promise.resolve(searchedEmails)
+    }
+    if (critiria === 'inbox') return Promise.resolve(inboxMails)
+    else if (critiria === 'sent') return Promise.resolve(sentMails)
+    else if (critiria === 'starred') return Promise.resolve(isStar)
+    else if (critiria === 'draft') return Promise.resolve(isDraft)
+    else if (critiria === 'trash') return Promise.resolve(isTrash)
+}
+
+function deleteEmail(emailId,returnToPlace) {
     let emailToDeleteIdx = gEmails.findIndex(email => email.id === emailId)
     let email = gEmails[emailToDeleteIdx]
+    if(returnToPlace) return email.isTrash = false
     if (!email.isTrash) email.isTrash = true
     else gEmails.splice(emailToDeleteIdx, 1)
 
@@ -246,11 +270,6 @@ function deleteEmail(emailId) {
 function addSentMail(to, subject, body) {
     let mails = gEmails;
     let id;
-    // if (mails[mails.length - 1].isDraft) {
-    //     id = mails[mails.length - 1].id
-    //     mails[mails.length - 1].isDraft = false
-    //     return
-    // }
     mails.push({
         id: utilService.makeId(),
         subject, body, isRead: true, sentAt: Date.now(), from: loggedinUser.email, sentFrom: loggedinUser.fullname, to, isChecked: false,
@@ -258,8 +277,8 @@ function addSentMail(to, subject, body) {
     })
 }
 
-function sendLastMail(){
-    gEmails[gEmails.length-1].isDraft = false
+function sendLastMail() {
+    gEmails[gEmails.length - 1].isDraft = false
 }
 
 function editDraftEmail(toWho, subjectOfText, bodyOfMail) {
@@ -270,28 +289,7 @@ function editDraftEmail(toWho, subjectOfText, bodyOfMail) {
     mails[mails.length - 1].isDraft = true
 }
 
-function query(critiria,isSearch) {
-    let emails = gEmails
-    let inboxMails = emails.filter(mail => mail.to === loggedinUser.email && !mail.isTrash)
-    let sentMails = emails.filter(mail => mail.from === loggedinUser.email && !mail.isDraft && !mail.isTrash)
-    let isStar = emails.filter(mail => mail.isChecked === true && !mail.isTrash)
-    let isDraft = emails.filter(mail => mail.isDraft === true && !mail.isTrash)
-    let isTrash = emails.filter(mail => mail.isTrash === true)
-    let searchedEmails = emails.filter(mail => {
-        if(mail.body.includes(critiria) || mail.subject.includes(critiria)){
-      return mail      
-        } 
-})
-    // if(!critiria) critiria = 'inbox'
-    if(isSearch) {
-        return Promise.resolve(searchedEmails)
-    }
-    if (critiria === 'inbox') return Promise.resolve(inboxMails)
-    else if (critiria === 'sent') return Promise.resolve(sentMails)
-    else if (critiria === 'starred') return Promise.resolve(isStar)
-    else if (critiria === 'draft') return Promise.resolve(isDraft)
-    else if (critiria === 'trash') return Promise.resolve(isTrash)
-}
+
 
 function getMailById(mailId) {
     let mails = gEmails

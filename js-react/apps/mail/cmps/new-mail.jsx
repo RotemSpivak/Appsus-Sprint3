@@ -6,7 +6,8 @@ export class NewMail extends React.Component {
         to: '',
         subject: '',
         body: '',
-        interval: ''
+        interval: '',
+        
     }
 
 
@@ -33,7 +34,6 @@ export class NewMail extends React.Component {
     componentWillUnmount() {
         clearInterval(this.state.interval)
         this.setState({ interval: '' , body: ''})
-        // clearInterval(interval)
     }
 
 
@@ -53,9 +53,11 @@ export class NewMail extends React.Component {
 
     render() {
         const { to, subject, body } = this.state
-        return <section className="new-mail-section">
+        return <div className="screen">
+
+        <section className="new-mail-section">
             <div className="new-mail-msg">
-                  <button onClick={() => {this.props.onSentMail()}}>X</button>
+                  <button onClick={this.props.onSentMail}>X</button>
                 <p className="new-msg">new messege</p>
             </div>
             <form className="new-mail" onSubmit={this.onSendEmail}>
@@ -66,6 +68,7 @@ export class NewMail extends React.Component {
             </form>
 
         </section>
+        </div>
       
     }
 }

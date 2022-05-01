@@ -29,11 +29,17 @@ export class EmailDetails extends React.Component {
      
         return <section className={`emails-section`}>
             <div className="mail-details">
-            <p className="email-details"><span className="bold">{email.sentFrom}:</span> {email.from}</p>
+            <p className="email-details"><span className="bold">{email.sentFrom}</span>	&#60;{email.from}&#62;</p>
             <h1 className="email-details">{email.subject}</h1>
             <p className="email-body email-details">{email.body}</p>
-           <NavLink to={`/notes/:?mailFrom=${email.sentFrom}&mailSubject=${email.subject}&&emailBody=${email.body}`}> <button className="send-btn send-note"><i className="fa-solid fa-paper-plane"></i></button></NavLink>
+            <div className="flex details-actions">
+           <NavLink to={`/notes/:?mailFrom=${email.sentFrom}&mailSubject=${email.subject}&&emailBody=${email.body}`}><i className="fa-solid fa-paper-plane send-note"></i></NavLink>
+           <i onClick={() => this.props.onDeleteEmail(email.id)} className="fa-solid fa-trash trash-details"></i>
+            </div>
+
             </div>
         </section>
     }
 }
+
+{/* <button className="send-btn send-note"> */}
