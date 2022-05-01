@@ -13,6 +13,7 @@ export const notesService = {
   pinNote,
   toggleTodo,
   getPinnedNotes,
+  isNotePinned,
 };
 
 
@@ -137,54 +138,58 @@ function _createNotes() {
   }
 }
 function pinNote(noteId) {
-  let notes = storageService.loadFromStorage(STORAGE_KEY);
-  const idx = notes.findIndex((note) => note.id === noteId);
-  const noteToPin = notes[idx];
-  notes.splice(idx, 1);
-  notes.unshift(noteToPin);
-  storageService.saveToStorage(STORAGE_KEY, notes);
-  return Promise.resolve();
+  // let notes = storageService.loadFromStorage(STORAGE_KEY);
+  // const idx = notes.findIndex((note) => note.id === noteId);
+  // const noteToPin = notes[idx];
+  // notes.splice(idx, 1);
+  // notes.unshift(noteToPin);
+  // storageService.saveToStorage(STORAGE_KEY, notes);
+  // return Promise.resolve();
 
-  // let notes = storageService.loadFromStorage(STORAGE_KEY) || []
-  // let pinnedNotes = storageService.loadFromStorage(STORAGE_KEY_PINNED) || []
-  // let note = getNoteById(noteId)
-  // if(pinnedNotes){
-  //   const pinnedIdx = pinnedNotes.findIndex((pinnedNote) => pinnedNote.id === noteId)
-  //   console.log('noteid',pinnedIdx)
-  //   pinnedNotes.push(note)
-  //   if(pinnedIdx !== -1){
-  //     unpinNote(note.id)
-  //     return
-  //   }
-  // }else{
-  //   storageService.saveToStorage(STORAGE_KEY_PINNED, pinnedNotes)
-  //   notes.splice(pinnedIdx, 1);
-  //   storageService.saveToStorage(STORAGE_KEY, notes);
-  //   return
-
-  // }
-  
-}
-function getPinnedNotes(){
-  const pinnedNotes =storageService.loadFromStorage(STORAGE_KEY_PINNED) ||[]
-  return pinnedNotes
-}
-
-
-function unpinNote(noteId){
-  let notes = storageService.loadFromStorage(STORAGE_KEY);
-  let pinnedNotes = storageService.loadFromStorage(STORAGE_KEY_PINNED) ||[]
-
-  let note = getNoteByIdPinned(noteId)
-  if(pinnedNotes){
-    const pinnedIdx = pinnedNotes.findIndex((pinnedNote) => pinnedNote.id === noteId)
-    console.log('pinned idx',pinnedIdx)
-    pinnedNotes.splice(pinnedIdx, 1)
-    notes.push(note)
-    console.log(notes)
+  let notes = storageService.loadFromStorage(STORAGE_KEY) || []
+  let pinnedNotes = storageService.loadFromStorage(STORAGE_KEY_PINNED) || []
+  if (!pinnedNotes.length) {
+    handlePinNote(notes, pinnedNotes, noteId)
+    return Promise.resolve()
   }
-  storageService.saveToStorage(STORAGE_KEY_PINNED, pinnedNotes)
+  const pinnedIdx = pinnedNotes.findIndex((pinnedNote) => pinnedNote.id === noteId)
+  if(pinnedIdx !== -1){
+    handleUnpinNote(notes, pinnedNotes, noteId)
+    return Promise.resolve()
+  }
+  handlePinNote(notes, pinnedNotes, noteId)
+  return Promise.resolve()
 }
+
+function getPinnedNotes(){
+  return storageService.loadFromStorage(STORAGE_KEY_PINNED) || []
+}
+
+function isNotePinned(note) {
+  const pinnedNotes = getPinnedNotes()
+  if (!pinnedNotes.length) return false
+  const idx = pinnedNotes.findIndex(pinnedNote => pinnedNote.id === note.id)
+  return idx !== -1
+}
+
+function handlePinNote(notes, pinnedNotes, noteId) {
+  const notesIdx = notes.findIndex(savedNote => savedNote.id === noteId)
+  const note = notes[notesIdx]
+  pinnedNotes.push(note)
+  notes.splice(notesIdx, 1)
+  storageService.saveToStorage(STORAGE_KEY_PINNED, pinnedNotes)
+  storageService.saveToStorage(STORAGE_KEY, notes);
+}
+
+function handleUnpinNote(notes, pinnedNotes, noteId){
+  const pinnedIdx = pinnedNotes.findIndex(pinnedNote => pinnedNote.id === noteId)
+  const note = pinnedNotes[pinnedIdx]
+  notes.push(note)
+  pinnedNotes.splice(pinnedIdx, 1)
+  storageService.saveToStorage(STORAGE_KEY_PINNED, pinnedNotes)
+  storageService.saveToStorage(STORAGE_KEY, notes);
+}
+
 function loadImageFromInput(ev, onImageReady) {
   return new Promise((resolve) => {
     var reader = new FileReader();
@@ -220,13 +225,12 @@ function toggleTodo(note, todoIdx){
 
 function getNoteByIdPinned(noteId) {
   let notes = storageService.loadFromStorage(STORAGE_KEY_PINNED) || []
-  console.log(notes)
   const currNote = notes.find(note => note.id === noteId)
   return currNote
 }
 function getNoteById(noteId) {
   let notes = storageService.loadFromStorage(STORAGE_KEY) || []
-  console.log(notes)
   const currNote = notes.find(note => note.id === noteId)
+  console.log(notes)
   return currNote
 }

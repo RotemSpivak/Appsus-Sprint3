@@ -40,7 +40,7 @@ export function NotePreview({ note, onDeleteNote, onEditNote, onPinNote, onToggl
         <div className="thumbtack-btn-container">
           <button
             onClick={onPinNotePreview}
-            style={{ backgroundColor: note.backgroundColor }}
+            style={{ backgroundColor: note.backgroundColor, visibility: notesService.isNotePinned(note) ? 'visible' : '' }}
           >
             <i
               style={{ backgroundColor: note.backgroundColor }}
@@ -77,7 +77,7 @@ export function NotePreview({ note, onDeleteNote, onEditNote, onPinNote, onToggl
         <div className="note-txt">{note.info.txt}</div>
         <div className="note-btn-container">
         <div className="thumbtack-btn-container">
-          <button style={{ backgroundColor: note.backgroundColor }} onClick={onPinNotePreview}>
+          <button style={{ backgroundColor: note.backgroundColor, visibility: notesService.isNotePinned(note) ? 'visible' : '' }} onClick={onPinNotePreview}>
             <i className="fa-solid fa-thumbtack" style={{ backgroundColor: note.backgroundColor }}></i>
           </button>
         </div>
@@ -111,7 +111,7 @@ export function NotePreview({ note, onDeleteNote, onEditNote, onPinNote, onToggl
         <div className="note-title">{note.info.title}</div>
         <div className="note-btn-container">
         <div className="thumbtack-btn-container">
-          <button style={{ backgroundColor: note.backgroundColor }} onClick={onPinNotePreview}>
+          <button style={{ backgroundColor: note.backgroundColor, visibility: notesService.isNotePinned(note) ? 'visible' : '' }} onClick={onPinNotePreview}>
             <i
               style={{ backgroundColor: note.backgroundColor }}
               className="fa-solid fa-thumbtack"
@@ -156,7 +156,7 @@ export function NotePreview({ note, onDeleteNote, onEditNote, onPinNote, onToggl
         </ul>
         <div className="note-btn-container" style={{ backgroundColor: note.backgroundColor }}>
         <div className="thumbtack-btn-container">
-          <button style={{ backgroundColor: note.backgroundColor }} onClick={onPinNotePreview}>
+          <button style={{ backgroundColor: note.backgroundColor, visibility: notesService.isNotePinned(note) ? 'visible' : '' }} onClick={onPinNotePreview}>
             <i className="fa-solid fa-thumbtack" style={{ backgroundColor: note.backgroundColor }}></i>
           </button>
         </div>
